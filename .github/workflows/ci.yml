@@ -22,4 +22,4 @@ jobs:
         go get container/list
 
     - name: test
-      run: go test
+      run: go test ./...
