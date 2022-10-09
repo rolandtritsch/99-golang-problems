@@ -1,0 +1,25 @@
+name: 99 golang problems - test it
+on:
+  push:
+    branches:
+      - trunk
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: setup
+      uses: actions/setup-go@v2
+      with:
+        go-version: '1.18.0'
+
+    - name: dependencies
+      run: |
+        go version
+        go get container/list
+
+    - name: test
+      run: go test
